@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos | Lens Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="index.html" style="text-decoration: none;"><h1 class="logo">LENS<span>GROUP</span></h1></a>
+                <span class="badge-trujillo">Trujillo</span>
+            </div>
+            <nav class="nav-principal">
+                <ul class="nav-links-texto">
+                    <li><a href="index.html" class="active">HOMBRES</a></li>
+                    <li><a href="index.html">MUJERES</a></li>
+                    <li><a href="index.html">NIÑOS</a></li>
+                </ul>
+
+                <ul class="nav-herramientas">
+                    <li class="nav-item-container">
+                        <a href="#" class="nav-icon-box" id="btn-buscar">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <span>Buscar</span>
+                        </a>
+                        
+                        <div id="mega-menu" class="mega-menu-oculto">
+                            <div class="mega-search-bar">
+                                <input type="text" id="input-buscador" placeholder="BUSCAR POR...">
+                                <button id="btn-ir-buscar">Ir</button>
+                            </div>
+                            <div class="mega-categorias">
+                                <div class="col-mega">
+                                    <h4>Catálogo</h4>
+                                    <a href="index.html" class="link-mega" data-cat="todos">Ver todas las monturas</a>
+                                    <a href="index.html" class="link-mega" data-cat="sol">De sol</a>
+                                    <a href="index.html" class="link-mega" data-cat="oftalmicos">Oftálmicos</a>
+                                </div>
+                                <div class="col-mega">
+                                    <h4>Forma de montura</h4>
+                                    <a href="index.html" class="link-mega" data-forma="aviador">Aviador</a>
+                                    <a href="index.html" class="link-mega" data-forma="cuadrado">Cuadrados</a>
+                                    <a href="index.html" class="link-mega" data-forma="redondo">Redondos</a>
+                                </div>
+                                <div class="col-mega">
+                                    <h4>Tipo de rostro</h4>
+                                    <a href="#">Ovalado</a>
+                                    <a href="#">Diamante</a>
+                                </div>
+                                <div class="col-mega">
+                                    <h4>Material</h4>
+                                    <a href="#">Acetato</a>
+                                    <a href="#">Metal</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <a href="favoritos.html" class="nav-icon-box" id="btn-ver-favoritos">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <span>Favoritos (<b id="contador-favs">0</b>)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            <span>Ayuda</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="carrito.html" class="nav-icon-box cart-icon-box" id="btn-ir-carrito-pagina">
+                            <div class="cart-badge-container">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                                <span class="cart-badge-number" id="contador-carrito-nav">0</span>
+                            </div>
+                            <span>Carrito</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="catalogo-wrapper">
+        <div class="catalogo-header">
+            <h2 class="section-title">Tus Monturas Favoritas</h2>
+            <p class="subtitle">Aquí están los modelos que guardaste para comprar después.</p>
+            
+            <a href="index.html" class="btn-retroceder">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Volver al Catálogo
+            </a>
+        </div>
+        
+        <div id="catalogo-dinamico" class="catalogo">
+        </div>
+    </main>
+
+    <div id="vto-modal" class="modal-oculto">
+        <div class="modal-contenido">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h3>Espejo Virtual <span>AR</span></h3>
+                    <div class="status-dot"></div>
+                </div>
+                <button id="cerrar-modal">✖</button>
+            </div>
+            
+            <div class="vto-layout">
+                <div id="camera-container">
+                    <div class="vto-loading">Iniciando cámara y rastreo facial...</div>
+                    <video id="webcam" autoplay playsinline></video>
+                    <canvas id="overlay"></canvas>
+                </div>
+
+                <div class="vto-sidebar">
+                    <h4 id="vto-modelo-titulo">Modelo Actual</h4>
+                    <p id="vto-modelo-precio" class="precio-destacado">S/ 0.00</p>
+                    
+                    <div class="color-selector">
+                        <p>Color de montura:</p>
+                        <div class="colores">
+                            <span class="color-btn active" style="background: #000;" title="Negro"></span>
+                            <span class="color-btn" style="background: #774320;" title="Carey"></span>
+                            <span class="color-btn" style="background: #2cb5a9;" title="Turquesa"></span>
+                        </div>
+                    </div>
+
+                    <div class="vto-actions">
+                        <button id="btn-tomar-foto" class="btn-secundario">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle;"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                            Tomar Foto
+                        </button>
+                        <button class="btn-primario" id="btn-add-cart">Añadir al Carrito</button>
+                        <button class="btn-comprar">Comprar Directamente</button>
+                    </div>
+
+                    <div id="model-selector">
+                        <p>Ver otros modelos:</p>
+                        <div id="botones-cambio-rapido"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="carrito-modal" class="modal-oculto">
+        <div class="modal-carrito-contenido">
+            <div class="carrito-header">
+                <h3 id="titulo-ventana-carrito">Tu Pedido</h3>
+                <button id="cerrar-carrito">✖</button>
+            </div>
+            
+            <div id="vista-lista-carrito">
+                <div id="lista-carrito"></div>
+                <div class="carrito-footer">
+                    <div class="total-row">
+                        <span>Total:</span>
+                        <span id="carrito-total">S/ 0.00</span>
+                    </div>
+                    <button id="btn-procesar-pago" class="btn-comprar" style="width: 100%;">
+                        Proceder al Pago
+                    </button>
+                </div>
+            </div>
+
+            <div id="vista-checkout" style="display: none;">
+                <form id="form-checkout">
+                    <div class="form-group"><label>Nombre Completo</label><input type="text" id="chk-nombre" required></div>
+                    <div class="form-group"><label>DNI / CE</label><input type="text" id="chk-dni" required></div>
+                    <div class="form-group"><label>Celular</label><input type="tel" id="chk-celular" required></div>
+                    <div class="form-group">
+                        <label>Distrito de Envío</label>
+                        <select id="chk-distrito" required>
+                            <option value="">Selecciona tu distrito...</option>
+                            <option value="trujillo">Trujillo Centro</option>
+                            <option value="el_porvenir">El Porvenir</option>
+                        </select>
+                    </div>
+                    <div class="form-group"><label>Dirección Exacta</label><input type="text" id="chk-direccion" required></div>
+                    <div class="checkout-actions">
+                        <button type="button" id="btn-volver-carrito" class="btn-secundario">Volver</button>
+                        <button type="submit" id="btn-finalizar-compra" class="btn-primario">Confirmar Compra</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-notificacion" class="toast-oculto">
+        <span id="toast-text">Producto añadido al carrito</span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
